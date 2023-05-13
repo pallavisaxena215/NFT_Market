@@ -28,6 +28,9 @@ contract Nftmarket {
    );
 
    mapping(uint=>TokenDetail) TokenDetails;
+   Counters.Counter private _tokengen;
+   Counters.Counter private _tokensold;
+
 //    constructor(){
 //     owner = payable(msg.sender);
 //    }
