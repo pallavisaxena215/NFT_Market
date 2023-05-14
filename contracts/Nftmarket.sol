@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.5.0 <=0.9.0;
+import "@openzeppelin/contracts/utils/Counters.sol"; // using as a counter whit keep track of id and counter
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"; // Using ERC721 standard
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 // Uncomment this line to use console.log
 import "hardhat/console.sol";
 
-contract Nftmarket is ERC721{
+contract Nftmarket is ERC721URIStorage{
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
    address payable public owner;
@@ -13,7 +14,6 @@ contract Nftmarket is ERC721{
    struct TokenDetail {
     uint id;
     uint price;
-    string tokenURI;
     address payable owner;
     address payable seller;
     bool exists;
@@ -44,24 +44,33 @@ contract Nftmarket is ERC721{
     tax = _tax;
    }
 
-  function createToken(string memory _tokenURI,uint _price) public payable returns (uint){
-     
+  function mintToken(string memory _tokenURI,uint _price) public payable returns (uint){
+
      _tokenIds.increment();
-
-     TokenDetail storage newToken = TokenDetails[_tokenIds];
-     newToken.owner = owner;
-     newToken.id = _tokenIds;
-     newToken.price= _price;
-     newToken.exists=true;
-     newToken.tokenURI=_tokenURI;
-     newToken.seller = owner;
+     uint temp_id = _tokenIds.current();
+     _mint(msg.sender,temp_id);
+     _setTokenURI(temp_id,_tokenURI);
+     // once the user has minted the token , the user needs to list it on the market plae
+     //then the ownership changes to the contract
+     createToken(temp_id,_price);
+    return temp_id;
   }
 
+  function createToken(uint _tokenId,uint _price) public payable returns (uint){
+    require(_price>0, "Price must be greater than zero");
+    require(msg.value == tax,"Please pay the listing price");
+    TokenDetails[_tokenId] = TokenDetail(
+    _tokenId,
+    _price,
+     payable(address(this)),
+    payable(msg.sender),
+    true
+    );
 
-  function buyToken(uint _tokenId) public payable returns (uint){
-     require(msg.value >= TokenDetails[_tokenId],"The amount is less than the token price");
-     newToken.owner = payable(msg.sender);
-     newToken.seller = payable(msg.sender);
+
+     _transfer(msg.sender, address(this), _tokenId);
+
   }
+
 
 }
