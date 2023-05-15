@@ -65,7 +65,7 @@ contract Nftmarket is ERC721URIStorage{
     _price,
     payable(address(this)),
     payable(msg.sender),
-    true
+    false
     );
 
 
