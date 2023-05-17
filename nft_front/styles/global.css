@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+/* styles/global.css */
+
+
+.custom-img{
+  background-image: url('https://img.freepik.com/free-photo/abstract-flowing-neon-wave-background_53876-101942.jpg?w=360');
+  background-size: cover;
+  background-position: center;
+ 
+}
