@@ -1,0 +1,60 @@
+
+  
+  .container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background {
+    position: relative;
+    background-image: url('/path/to/your/image.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .header {
+    padding: 20px 0;
+  }
+  
+  .footer {
+    padding: 20px 0;
+  }
+  
+  .footer p {
+    color: #ccc;
+  }
+  
+  .navbar {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .navbarMenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbarItem {
+    margin: 0 10px;
+  }
+  
+  .navbarLink {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .navbarLink:hover {
+    text-decoration: underline;
+  }

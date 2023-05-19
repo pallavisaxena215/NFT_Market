@@ -1,6 +1,11 @@
-import Hero from '../components/Hero'
+import Hero from '../components/Hero';
+import NavBar from '../components/NavBar/NavBar.jsx'
 const Home = () => (
-   <Hero />
+    <div>
+        {/* <NavBar/> */}
+        <Hero />
+    </div>
+    
   );
   
   export default Home;
