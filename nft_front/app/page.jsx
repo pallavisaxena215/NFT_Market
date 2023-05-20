@@ -1,11 +1,13 @@
-import Hero from '../components/Hero';
-import NavBar from '../components/NavBar/NavBar.jsx'
-const Home = () => (
+import React from 'react'
+import { NavBar } from "../components/componentsindex";
+const page = () => {
+  return (
+
     <div>
-        {/* <NavBar/> */}
-        <Hero />
+        <NavBar/>
+        PAGE
     </div>
-    
-  );
-  
-  export default Home;
+  )
+}
+
+export default page
