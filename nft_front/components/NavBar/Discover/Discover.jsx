@@ -1,5 +1,6 @@
-import Link from 'next/link'
-import React from 'react'
+import React from "react";
+import Link from "next/link";
+
 
 
 // .discover{
@@ -17,7 +18,7 @@ const Discover = () => {
   return (
     <div>
       <div className = " padding: .5rem 1rem transition:  all .3s ease-in z-index: 2222222222">
-        <Link> Discover </Link>
+        <p> Discover </p>
         </div>
       </div>
   )
