@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 
 
 import {Discover,Help,Notification,Profile,SideBar} from './index.js'
-import {Mdnotifications} from 'react-icons/md';
+import {MdNotifications} from 'react-icons/md';
 import {BsSearch} from 'react-icons/bs';
 import {CgMenuLeft, CgMenuRight} from 'react-icons/cg';
 import {Button} from "../componentsindex";
@@ -121,21 +121,21 @@ const NavBar = () => {
           </div>
 
           {/* CREATE BUTTON SECTION */}
-          <div className={Style.navbar_container_right_button}>
+          <div className='position relative cursor pointer'>
             <Button btnName="Create" handleClick={() => {}} />
           </div>
 
           {/* USER PROFILE */}
 
-          <div className={Style.navbar_container_right_profile_box}>
-            <div className={Style.navbar_container_right_profile}>
-              <Image
-                src={images.user1}
+          <div className='position relative cursor pointer'>
+            <div className='position relative cursor pointer'>
+              <img
+                src='https://www.persofoto.de/apple-touch-icon-180x180.png'
                 alt="Profile"
                 width={40}
                 height={40}
                 onClick={() => openProfile()}
-                className={Style.navbar_container_right_profile}
+                className='position relative cursor pointer'
               />
 
               {profile && <Profile />}
@@ -144,9 +144,9 @@ const NavBar = () => {
 
           {/* MENU BUTTON */}
 
-          <div className={Style.navbar_container_right_menuBtn}>
+          <div className='display none'>
             <CgMenuRight
-              className={Style.menuIcon}
+              className='font-size 2.5rem cursor pointer'
               onClick={() => openSideBar()}
             />
           </div>
@@ -155,7 +155,7 @@ const NavBar = () => {
 
       {/* SIDBAR CPMPONE/NT */}
       {openSideMenu && (
-        <div className={Style.sideBar}>
+        <div className=' display none'>
           <SideBar setOpenSideMenu={setOpenSideMenu} />
         </div>
       )}
